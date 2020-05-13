@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);
+
+Route::resource('posts', 'Post\PostController', ['except' => ['create', 'edit']]);
