@@ -15,7 +15,7 @@ class PostController extends Controller
    */
   public function index()
   {
-    $posts = Post::all();
+    $posts = Post::with('category')->get();
     return ['posts' => $posts];
   }
 
@@ -48,7 +48,7 @@ class PostController extends Controller
    */
   public function show($id)
   {
-    $post = Post::findOrFail($id);
+    $post = Post::with('comments')->findOrFail($id);
     return ['post' => $post];
   }
 
